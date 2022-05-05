@@ -1,0 +1,71 @@
+.shop-item-image{
+    height: 30vh;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+}
+
+.item-row{
+    height: 80vh;
+    overflow-y: scroll;
+
+}
+
+.modal-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 0px solid #dee2e6;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+  }
+.modal-text-white {
+color: #fff !important;
+}
+
+.modal-font-weight-bold {
+    font-weight: 700 !important;
+  }
+.full-width{
+ width: 100%;
+}
+
+.input-item:focus{
+  box-shadow: 0 0 0 0.25rem rgb(49 132 253 / 50%);
+  outline-color: white;
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+.input-text {
+  height: 5.5vh;
+  color: grey;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
+}
+
+.input-item-btn:focus{
+  outline-color: white !important;
+}
+
+.input-item-btn:active{
+  outline-color: white !important;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace;
+            background-color: white;
+            height: 297mm;
+            width: 210mm;
+            padding: 0;
+            margin: 0;
+        }
+
+        .background {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .alnright { text-align: right; }
+
+        hr.horizontal-line {
+            border-top: 1px solid #999;
+            width: 110%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container-fluid m-0 p-0 back">
+        <div>
+            <img src={{logoBase64}} class="background" />
+        </div>
+        <div class="row m-0 p-0 fixed-top mt-5">
+            <div class="col-md-12 m-0 p-0 pb-2 pt-2 justify-content-center">
+                <span class="h5 d-block m-0 p-0 text-center font-weight-bold">{{strCompName}}</span>
+                <span class="h5 d-block m-0 p-0 text-center font-weight-bold">{{strCompCity}}</span>
+                <span class="d-block mt-1 m-0 p-0 text-center font-weight-bold">
+                    {{strContactInfo}}
+                </span>
+            </div>
+        </div>
+        <div class="row m-0 p-0 mt-4 position-absolute" style="top: 10%; left: 35%;">
+            <div class="col-md-12 m-0 p-0 pb-2 pt-2 justify-content-center">
+                <span class="h3 d-block m-0 p-0 text-center font-weight-bold">{{strReportName}}</span>
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 mt-4 position-absolute d-flex justify-content-center" style="top: 20%;">
+            <div class="col-md-10 m-0 p-2 pl-4 pr-4">
+                <table class="table table-sm" style="table-layout: fixed; font-size: 15px;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Order No.</th>
+                            <th scope="col">Order Date</th>
+                            <th scope="col">Delivery Date</th>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Delivery Status</th>
+                            <th scope="col">Delivery By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each arrData}}
+                        <tr>
+                            <td>{{strOrderNo}}</td>
+                            <td>{{dtmOrderDate}}</td>
+                            <td>{{dtmDeliveryDate}}</td>
+                            <td>{{strCustName}}</td>
+                            <td>{{strAddress}}</td>
+                            <td>{{strDeliveryStatus}}</td>
+                            <td>{{strDriverCode}}</td>
+                        </tr>
+                        {{/each}}
+                        {{!-- <hr class="horizontal-line w-100 p-0 m-0" /> --}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 position-absolute" style="top: 60%;">
+            <div class="col-md-12 m-0 p-2 justify-content-center">
+                <span class="d-block m-0 p-0 font-weight-bold text-white" style="font-size: 12px;">
+                    {{strAddress}}
+                </span>
+                <span class="d-block m-0 p-0 font-weight-bold text-white" style="font-size: 12px;">
+                    {{strContactInfo}}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+.headline-navbar{
+    font-family: 'Inconsolata', monospace;
+    font-size: 2rem;
+    color: #970647;
+    
+}
+
+.card-navbar {
+    background-color: #970647!important;
+}
+
+.card-title-navbar{
+    font-size: 0.9rem;
+}
+
+.card-icon-navbar{
+    font-size: 1.6rem;
+    float: right;
+    margin-left: 10px;
+}
+
+.icon-navbar{
+    font-size: 1rem;
+    font-weight: 600;
+    float: right;
+    margin-left: 25px;
+    color: #970647!important;
+}
+
+hr.new1 {
+    border-top: 2px solid #970647;
+}
