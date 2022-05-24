@@ -3,7 +3,7 @@ const ApiResult = require("../../models/Common/ApiResult");
 const suppierModel = require("../../models/Supplier/suppilerModel");
 const PurchaseOrderDetails = require("../../models/Supplier/purchaseOrderModel");
 const purchaseOrderModel = require("../../models/Supplier/purchaseOrderModel");
-const PrintController = require("../../models/Common/PrintController")
+const PrintController = require("../../models/Common/PrintController");
 
 router.get('/GetSupplier', async (req, res) => {
     try {
@@ -102,5 +102,17 @@ router.post('/PurchaseOrderReport', async (req, res) => {
         res.send(new ApiResult(false, "Error: " + error.message));
     }
 });
+
+
+router.post('/SupplierReport', async (req, res) => { 
+    try {
+        const objSupplier = await suppierModel.findOne({ strSupplierID: req.body.strSupplierID });
+        const resReport = await PrintController("Supplier.hbs", {...objSupplier.toJSON(), strReportName: 'Supplier Details Report'}, []);
+        res.send(new ApiResult(resReport.booStatus, resReport.objResponse));
+    } catch (error) {
+        res.send(new ApiResult(false, "Error: " + error.message));
+    }
+});
+
 
 module.exports = router;

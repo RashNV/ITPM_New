@@ -136,7 +136,7 @@ const PurchaseOrderDetails = () => {
         setFormState("Inq");
     };
 
-    const fnPrint = async (strPurchaseOderID) => {
+    const fnPrint = async (strPurchaseOderID,title) => {
         setLoad(true);
         const resPrint = await PostApiCaller("supplier/PurchaseOrderReport", {
             strPurchaseOderID: strPurchaseOderID,

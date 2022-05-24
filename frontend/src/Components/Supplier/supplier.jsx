@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import GridFunctions from "../Common/Grid/GridFunctions";
 import SiteLoading from "../Common/Siteloading/SiteLoading";
 import Swal from "sweetalert2";
+import printJS from "print-js";
 import { GetApiCaller, PostApiCaller } from "../../services/ApiCaller";
 import { Button, Modal } from "react-bootstrap";
 
@@ -71,6 +72,13 @@ const SupplierDetails = () => {
                     >
                         <i className="fas fa-edit" />
                     </button>
+
+                    <button
+                            className="btn btn-sm btn-success m-0 p-2 ms-2"
+                            onClick={() => fnPrint(row.strSupplierID)}
+                        >
+                            <i className="fas fa-file-pdf" />
+                        </button>
                 </>
             )
         }
@@ -107,6 +115,19 @@ const SupplierDetails = () => {
 
     setFormState("Inq");
     };
+
+    const fnPrint = async (strSupplierID, title) => {
+        setLoad(true);
+         const resPrint = await PostApiCaller("supplier/SupplierReport", {
+            strSupplierID: strSupplierID,
+         });
+         setLoad(false);
+         if (resPrint.booStatus) {
+            printJS({ printable: resPrint.objResponse, type: "pdf", base64: true });
+         } else {
+            showValidationError(false, resPrint.objResponse);
+         }
+        };
 
     const fnSave = async () => {
 
@@ -199,6 +220,7 @@ const SupplierDetails = () => {
       
         });
         setFormState("Add");
+        document.getElementById("EvidenceImg").value = "";
     };
 
     return (
